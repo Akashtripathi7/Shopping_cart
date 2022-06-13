@@ -50,8 +50,21 @@ class _ProductListScreenState extends State<ProductListScreen> {
   Widget build(BuildContext context) {
     final cart = Provider.of<CartProvider>(context);
     return Scaffold(
+      backgroundColor: Color.fromARGB(255, 1, 16, 27),
       appBar: AppBar(
-        title: Text('Product List'),
+        flexibleSpace: Container(
+          decoration: const BoxDecoration(
+            gradient: LinearGradient(
+                begin: Alignment.centerLeft,
+                end: Alignment.centerRight,
+                colors: <Color>[Colors.blueAccent, Colors.tealAccent]),
+          ),
+        ),
+        // backgroundColor: Color(0xff84ACFA),
+        title: Text(
+          'Product List',
+          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 22),
+        ),
         centerTitle: true,
         actions: [
           InkWell(
@@ -70,7 +83,7 @@ class _ProductListScreenState extends State<ProductListScreen> {
                 ),
                 animationType: BadgeAnimationType.fade,
                 animationDuration: Duration(milliseconds: 300),
-                child: Icon(Icons.shopping_bag_outlined),
+                child: Icon(Icons.shopping_cart),
               ),
             ),
           ),
@@ -84,6 +97,7 @@ class _ProductListScreenState extends State<ProductListScreen> {
                 itemCount: productName.length,
                 itemBuilder: (context, index) {
                   return Card(
+                    color: Color.fromARGB(255, 1, 16, 27),
                     child: Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Column(
@@ -112,6 +126,7 @@ class _ProductListScreenState extends State<ProductListScreen> {
                                     Text(
                                       productName[index].toString(),
                                       style: TextStyle(
+                                          color: Colors.white,
                                           fontSize: 16,
                                           fontWeight: FontWeight.w500),
                                     ),
@@ -124,6 +139,7 @@ class _ProductListScreenState extends State<ProductListScreen> {
                                           r"$" +
                                           productPrice[index].toString(),
                                       style: TextStyle(
+                                          color: Colors.white,
                                           fontSize: 16,
                                           fontWeight: FontWeight.w500),
                                     ),
@@ -190,7 +206,13 @@ class _ProductListScreenState extends State<ProductListScreen> {
                                           height: 35,
                                           width: 100,
                                           decoration: BoxDecoration(
-                                              color: Colors.green,
+                                              gradient: const LinearGradient(
+                                                  begin: Alignment.topLeft,
+                                                  end: Alignment.bottomRight,
+                                                  colors: [
+                                                    Colors.greenAccent,
+                                                    Colors.blueAccent
+                                                  ]),
                                               borderRadius:
                                                   BorderRadius.circular(5)),
                                           child: const Center(

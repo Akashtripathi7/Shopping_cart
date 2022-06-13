@@ -21,8 +21,21 @@ class _CartScreenState extends State<CartScreen> {
   Widget build(BuildContext context) {
     final cart = Provider.of<CartProvider>(context);
     return Scaffold(
+      backgroundColor: Color.fromARGB(255, 1, 16, 27),
       appBar: AppBar(
-        title: Text('Shopping Cart'),
+        flexibleSpace: Container(
+          decoration: const BoxDecoration(
+            gradient: LinearGradient(
+                begin: Alignment.centerLeft,
+                end: Alignment.centerRight,
+                colors: <Color>[Colors.blueAccent, Colors.tealAccent]),
+          ),
+        ),
+        // backgroundColor: Color(0xff84ACFA),
+        title: Text(
+          'Shopping Cart',
+          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 22),
+        ),
         centerTitle: true,
         actions: [
           Center(
@@ -35,7 +48,7 @@ class _CartScreenState extends State<CartScreen> {
               ),
               animationDuration: Duration(milliseconds: 300),
               animationType: BadgeAnimationType.slide,
-              child: Icon(Icons.shopping_bag_outlined),
+              child: Icon(Icons.shopping_cart),
             ),
           ),
           SizedBox(width: 20.0)
@@ -61,14 +74,20 @@ class _CartScreenState extends State<CartScreen> {
                               height: 20,
                             ),
                             Text('Your cart is empty 😌',
-                                style: Theme.of(context).textTheme.headline5),
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.w600)),
                             SizedBox(
                               height: 20,
                             ),
                             Text(
                                 'Explore products and shop your\nfavourite items',
                                 textAlign: TextAlign.center,
-                                style: Theme.of(context).textTheme.subtitle2)
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.w600)),
                           ],
                         ),
                       );
@@ -78,6 +97,7 @@ class _CartScreenState extends State<CartScreen> {
                             itemCount: snapshot.data!.length,
                             itemBuilder: (context, index) {
                               return Card(
+                                color: Color.fromARGB(255, 1, 16, 27),
                                 child: Padding(
                                   padding: const EdgeInsets.all(8.0),
                                   child: Column(
@@ -119,6 +139,7 @@ class _CartScreenState extends State<CartScreen> {
                                                           .productName
                                                           .toString(),
                                                       style: TextStyle(
+                                                          color: Colors.white,
                                                           fontSize: 16,
                                                           fontWeight:
                                                               FontWeight.w500),
@@ -136,8 +157,10 @@ class _CartScreenState extends State<CartScreen> {
                                                                   .productPrice
                                                                   .toString()));
                                                         },
-                                                        child:
-                                                            Icon(Icons.delete))
+                                                        child: Icon(
+                                                          Icons.delete,
+                                                          color: Colors.white,
+                                                        ))
                                                   ],
                                                 ),
                                                 SizedBox(
@@ -152,6 +175,7 @@ class _CartScreenState extends State<CartScreen> {
                                                           .productPrice
                                                           .toString(),
                                                   style: TextStyle(
+                                                      color: Colors.white,
                                                       fontSize: 16,
                                                       fontWeight:
                                                           FontWeight.w500),
@@ -168,7 +192,17 @@ class _CartScreenState extends State<CartScreen> {
                                                       height: 35,
                                                       width: 100,
                                                       decoration: BoxDecoration(
-                                                          color: Colors.green,
+                                                          gradient: LinearGradient(
+                                                              begin: Alignment
+                                                                  .topLeft,
+                                                              end: Alignment
+                                                                  .bottomRight,
+                                                              colors: [
+                                                                Colors
+                                                                    .greenAccent,
+                                                                Colors
+                                                                    .blueAccent
+                                                              ]),
                                                           borderRadius:
                                                               BorderRadius
                                                                   .circular(5)),
@@ -374,11 +408,13 @@ class ReusableWidget extends StatelessWidget {
         children: [
           Text(
             title,
-            style: Theme.of(context).textTheme.subtitle2,
+            style: TextStyle(
+                color: Colors.white, fontSize: 14, fontWeight: FontWeight.w600),
           ),
           Text(
             value.toString(),
-            style: Theme.of(context).textTheme.subtitle2,
+            style: TextStyle(
+                color: Colors.white, fontSize: 14, fontWeight: FontWeight.w600),
           )
         ],
       ),
