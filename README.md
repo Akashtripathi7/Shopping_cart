@@ -1,6 +1,9 @@
 # shopping_cart
 
 
+This is a smiple shopping cart app, which I have build using flutter,here I have used provider for managing the state of the whole app
+
+
 ![Screenshot_1655148475](https://user-images.githubusercontent.com/68461661/173430188-6fa64298-2756-48ea-972e-52b55da5ec4e.png)
 
 
@@ -20,17 +23,4 @@
 
 
 
-A new Flutter project.
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
